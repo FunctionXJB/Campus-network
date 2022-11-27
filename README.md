@@ -83,7 +83,11 @@ service ua2f start
 # 手动关闭ua2f
 service ua2f stop
 ```
-
+**注意：**我编译的时候把TurboACC编译进去了，记得把这个Flow Offloading 技术关闭，这个开启会导致User-Agent 字段修改失效  
+由于微信mmtls协议的影响，会可能会导致微信图片无法发送等问题，此问题可执行 
+```
+uci set ua2f.firewall.handle_mmtls=0 && uci commit ua2f
+```
 到此就可以进行检测了  
 
 [UA检测](http://ua.233996.xyz/)  
